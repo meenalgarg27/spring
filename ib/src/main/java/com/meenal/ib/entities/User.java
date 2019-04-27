@@ -46,6 +46,9 @@ public class User {
 	@OneToMany
 	private List<AccountType> accounts;
 
+	@Column 
+	private GovernmentIdType uniqueIdType;
+	
 	/**
 	 * @return the id
 	 */
@@ -185,7 +188,19 @@ public class User {
 	public void setSecretQuestion3(boolean secretQuestion3) {
 		this.secretQuestion3 = secretQuestion3;
 	}
-	
-	
+
+	/**
+	 * @return the uniqueIdType
+	 */
+	public GovernmentIdType getUniqueIdType() {
+		return uniqueIdType;
+	}
+
+	/**
+	 * @param uniqueIdType the uniqueIdType to set
+	 */
+	public void setUniqueIdType(GovernmentIdType uniqueIdType) {
+		this.uniqueIdType = uniqueIdType;
+	}
 	
 }
