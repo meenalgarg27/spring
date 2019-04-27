@@ -34,6 +34,15 @@ public class User {
 	@Column
 	private boolean ibEnabled;
 	
+	@Column
+	private boolean secretQuestion1;
+	
+	@Column 
+	private boolean secretQuestion2;
+	
+	@Column 
+	private boolean secretQuestion3;
+	
 	@OneToMany
 	private List<AccountType> accounts;
 
@@ -134,6 +143,49 @@ public class User {
 	public void setIbEnabled(boolean ibEnabled) {
 		this.ibEnabled = ibEnabled;
 	}
+
+	/**
+	 * @return the secretQuestion1
+	 */
+	public boolean isSecretQuestion1() {
+		return secretQuestion1;
+	}
+
+	/**
+	 * @return the secretQuestion2
+	 */
+	public boolean isSecretQuestion2() {
+		return secretQuestion2;
+	}
+
+	/**
+	 * @return the secretQuestion3
+	 */
+	public boolean isSecretQuestion3() {
+		return secretQuestion3;
+	}
+
+	/**
+	 * @param secretQuestion1 the secretQuestion1 to set
+	 */
+	public void setSecretQuestion1(boolean secretQuestion1) {
+		this.secretQuestion1 = secretQuestion1;
+	}
+
+	/**
+	 * @param secretQuestion2 the secretQuestion2 to set
+	 */
+	public void setSecretQuestion2(boolean secretQuestion2) {
+		this.secretQuestion2 = secretQuestion2;
+	}
+
+	/**
+	 * @param secretQuestion3 the secretQuestion3 to set
+	 */
+	public void setSecretQuestion3(boolean secretQuestion3) {
+		this.secretQuestion3 = secretQuestion3;
+	}
+	
 	
 	
 }
