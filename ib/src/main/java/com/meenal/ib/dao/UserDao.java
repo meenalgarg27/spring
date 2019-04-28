@@ -7,5 +7,5 @@ import com.meenal.ib.entities.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Long> {
-
+	public User findUserByUniqueId(String uniqueID);
 }
