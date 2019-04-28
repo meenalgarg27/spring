@@ -1,5 +1,10 @@
 package com.meenal.ib.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.meenal.ib.dao.GovernmentIdDao;
 import com.meenal.ib.dao.ProcessDao;
 import com.meenal.ib.dao.UserDao;
@@ -11,6 +16,7 @@ import user.meenal.ib.model.Error;
 import user.meenal.ib.model.InitialVerificationResponse;
 import user.meenal.ib.model.User;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 	private final UserDao userDao;
@@ -31,7 +37,8 @@ public class UserServiceImpl implements UserService {
 		if (userEntity != null) {
 
 			if (user.getFirstName().equalsIgnoreCase(userEntity.getFirstName())
-					&& user.getSecondName().equalsIgnoreCase(userEntity.getSecondName())) {
+					&& user.getSecondName().equalsIgnoreCase(userEntity.getSecondName())
+					&& user.getGovernmentIdType() == userEntity.getGovernmentIdType()) {
 
 				ProcessEntity startProcess = new ProcessEntity();
 				startProcess.setIbProcess(IbProcess.REGISTRATION);
@@ -46,8 +53,19 @@ public class UserServiceImpl implements UserService {
 				Error error = new Error();
 				error.setCode(400);
 				error.setMessage("Initial verification failed");
+				List<Error> errors = new ArrayList<>();
+				errors.add(error);
+				initialVerificationResponse.setErrors(errors);
 			}
 
+		} else {
+			initialVerificationResponse = new InitialVerificationResponse();
+			Error error = new Error();
+			error.setCode(400);
+			error.setMessage("Initial verification failed");
+			List<Error> errors = new ArrayList<>();
+			errors.add(error);
+			initialVerificationResponse.setErrors(errors);
 		}
 		return initialVerificationResponse;
 

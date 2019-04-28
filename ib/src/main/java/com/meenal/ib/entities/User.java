@@ -1,5 +1,6 @@
 package com.meenal.ib.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,48 +10,53 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+
+import com.meenal.ib.enums.GovernmentIdType;
 
 @Entity
 @Table
-public class User {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4093344830892423734L;
 
 	@Id
 	@Column
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column
 	private String firstName;
-	
+
 	@Column
 	private String secondName;
-	
+
 	@Column
 	private String address;
-	
-	@Id
+
 	@Column
 	private String uniqueId;
-	
+
 	@Column
 	private boolean ibEnabled;
-	
+
 	@Column
-	private boolean secretQuestion1;
-	
-	@Column 
-	private boolean secretQuestion2;
-	
-	@Column 
-	private boolean secretQuestion3;
-	
+	private String secretQuestion1;
+
+	@Column
+	private String secretQuestion2;
+
+	@Column
+	private String secretQuestion3;
+
 	@OneToMany
 	private List<AccountType> accounts;
 
-	@Column 
-	private GovernmentIdType uniqueIdType;
-	
+	@Column
+	private GovernmentIdType governmentIdType;
+
 	/**
 	 * @return the id
 	 */
@@ -87,35 +93,40 @@ public class User {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param firstName the firstName to set
+	 * @param firstName
+	 *            the firstName to set
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
 	/**
-	 * @param secondName the secondName to set
+	 * @param secondName
+	 *            the secondName to set
 	 */
 	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param address
+	 *            the address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
 	/**
-	 * @param uniqueId the uniqueId to set
+	 * @param uniqueId
+	 *            the uniqueId to set
 	 */
 	public void setUniqueId(String uniqueId) {
 		this.uniqueId = uniqueId;
@@ -129,7 +140,8 @@ public class User {
 	}
 
 	/**
-	 * @param accounts the accounts to set
+	 * @param accounts
+	 *            the accounts to set
 	 */
 	public void setAccounts(List<AccountType> accounts) {
 		this.accounts = accounts;
@@ -143,7 +155,8 @@ public class User {
 	}
 
 	/**
-	 * @param ibEnabled the ibEnabled to set
+	 * @param ibEnabled
+	 *            the ibEnabled to set
 	 */
 	public void setIbEnabled(boolean ibEnabled) {
 		this.ibEnabled = ibEnabled;
@@ -152,57 +165,58 @@ public class User {
 	/**
 	 * @return the secretQuestion1
 	 */
-	public boolean isSecretQuestion1() {
+	public String getSecretQuestion1() {
 		return secretQuestion1;
 	}
 
 	/**
 	 * @return the secretQuestion2
 	 */
-	public boolean isSecretQuestion2() {
+	public String getSecretQuestion2() {
 		return secretQuestion2;
 	}
 
 	/**
 	 * @return the secretQuestion3
 	 */
-	public boolean isSecretQuestion3() {
+	public String getSecretQuestion3() {
 		return secretQuestion3;
 	}
 
 	/**
 	 * @param secretQuestion1 the secretQuestion1 to set
 	 */
-	public void setSecretQuestion1(boolean secretQuestion1) {
+	public void setSecretQuestion1(String secretQuestion1) {
 		this.secretQuestion1 = secretQuestion1;
 	}
 
 	/**
 	 * @param secretQuestion2 the secretQuestion2 to set
 	 */
-	public void setSecretQuestion2(boolean secretQuestion2) {
+	public void setSecretQuestion2(String secretQuestion2) {
 		this.secretQuestion2 = secretQuestion2;
 	}
 
 	/**
 	 * @param secretQuestion3 the secretQuestion3 to set
 	 */
-	public void setSecretQuestion3(boolean secretQuestion3) {
+	public void setSecretQuestion3(String secretQuestion3) {
 		this.secretQuestion3 = secretQuestion3;
 	}
 
 	/**
-	 * @return the uniqueIdType
+	 * @return the governmentIdType
 	 */
-	public GovernmentIdType getUniqueIdType() {
-		return uniqueIdType;
+	public GovernmentIdType getGovernmentIdType() {
+		return governmentIdType;
 	}
 
 	/**
-	 * @param uniqueIdType the uniqueIdType to set
+	 * @param governmentIdType
+	 *            the governmentIdType to set
 	 */
-	public void setUniqueIdType(GovernmentIdType uniqueIdType) {
-		this.uniqueIdType = uniqueIdType;
+	public void setGovernmentIdType(GovernmentIdType governmentIdType) {
+		this.governmentIdType = governmentIdType;
 	}
-	
+
 }

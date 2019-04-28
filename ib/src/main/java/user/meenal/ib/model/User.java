@@ -1,5 +1,7 @@
 package user.meenal.ib.model;
 
+import com.meenal.ib.enums.GovernmentIdType;
+
 public class User {
 
 	private String firstName;
@@ -9,6 +11,8 @@ public class User {
 	private String address;
 
 	private String uniqueId;
+
+	private GovernmentIdType governmentIdType;
 
 	/**
 	 * @return the firstName
@@ -68,6 +72,21 @@ public class User {
 	 */
 	public void setUniqueId(String uniqueId) {
 		this.uniqueId = uniqueId;
+	}
+
+	/**
+	 * @return the governmentIdType
+	 */
+	public GovernmentIdType getGovernmentIdType() {
+		return governmentIdType;
+	}
+
+	/**
+	 * @param governmentIdType
+	 *            the governmentIdType to set
+	 */
+	public void setGovernmentIdType(GovernmentIdType governmentIdType) {
+		this.governmentIdType = governmentIdType;
 	}
 
 }

@@ -1,11 +1,16 @@
 package com.meenal.ib.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import com.meenal.ib.enums.GovernmentIdType;
+
+@Entity
+@Table
 public class GovernmentIds {
 
 	@Id
@@ -16,8 +21,9 @@ public class GovernmentIds {
 	@Column
 	private String governmentId;
 	
-	@OneToOne
+	@Column
 	private GovernmentIdType governmentIdType;
+	
 
 	/**
 	 * @return the id
@@ -31,13 +37,6 @@ public class GovernmentIds {
 	 */
 	public String getGovernmentId() {
 		return governmentId;
-	}
-
-	/**
-	 * @return the governmentIdType
-	 */
-	public GovernmentIdType getGovernmentIdType() {
-		return governmentIdType;
 	}
 
 	/**
@@ -55,11 +54,17 @@ public class GovernmentIds {
 	}
 
 	/**
+	 * @return the governmentIdType
+	 */
+	public GovernmentIdType getGovernmentIdType() {
+		return governmentIdType;
+	}
+
+	/**
 	 * @param governmentIdType the governmentIdType to set
 	 */
 	public void setGovernmentIdType(GovernmentIdType governmentIdType) {
 		this.governmentIdType = governmentIdType;
 	}
-	
-	
+
 }

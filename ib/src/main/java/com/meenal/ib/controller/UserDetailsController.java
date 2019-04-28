@@ -13,14 +13,14 @@ import user.meenal.ib.model.User;
 @RestController
 @RequestMapping("/api/users")
 public class UserDetailsController {
-	private final UserService userService;
+	private UserService userService;
 
 	public UserDetailsController(UserService userService) {
 		super();
 		this.userService = userService;
 	}
 
-	@RequestMapping("/{governmentId}/verify")
+	@RequestMapping("/verify")
 	public @ResponseBody InitialVerificationResponse verifyUserForIB(@RequestBody User user) {
 		return this.userService.registerUser(user);
 	}
