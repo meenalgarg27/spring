@@ -6,5 +6,6 @@ import user.meenal.ib.model.User;
 public interface UserService {
 
 	public InitialVerificationResponse registerUser(User user);
+	
 
 }
