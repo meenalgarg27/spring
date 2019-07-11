@@ -1,5 +1,7 @@
 package com.meenal.ib.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,4 +32,10 @@ public class UserDetailsController {
 	public void registerUserForIB(@RequestBody User user) {
 		userService.registerUser(user);
 	}
+	
+	@RequestMapping(method= RequestMethod.GET, produces = "application/json")
+	public @ResponseBody List<User> getUsers() {
+		return userService.getUsers();
+	}
+
 }

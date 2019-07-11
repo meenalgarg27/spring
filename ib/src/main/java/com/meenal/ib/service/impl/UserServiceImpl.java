@@ -71,4 +71,22 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	@Override
+	public List<User> getUsers() {
+		List<com.meenal.ib.entities.User> users = this.userDao.findAll();
+
+		List<User> userModels = new ArrayList<User>();
+		users.forEach(user->{
+			User userModel = new User();
+			userModel.setAddress(user.getAddress());
+			userModel.setFirstName(user.getFirstName());
+			userModel.setSecondName(user.getSecondName());
+			userModel.setGovernmentIdType(user.getGovernmentIdType());
+			userModel.setUniqueId(user.getUniqueId());
+			userModels.add(userModel);
+		});
+		
+		return userModels; 
+	}
+
 }
